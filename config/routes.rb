@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  scope module: :public do
+    root to: "homes#top"
+    get 'about' => 'homes#about'
+  end
+  scope module: :admin do
+    get 'admin' => 'homes#top'
+  end
   devise_for :customers,skip:[:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
