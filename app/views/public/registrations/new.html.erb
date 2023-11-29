@@ -4,12 +4,36 @@
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :last_name %><%= f.text_field :last_name %>
+    <%= f.label :last_name %><%= f.text_field :last_name, autocomplete: "(姓)" %>
   </div>
-  
+
+  <div class="field">
+    <%= f.label :first_name %><%= f.text_field :first_name, autocomplete: "(名)" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name_kana %><%= f.text_field :last_name_kana, autocomplete: "(セイ)" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name_kana %><%= f.text_field :first_name_kana, autocomplete: "(メイ)" %>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code %><%= f.postal_code_field :postal_code, autocomplete: "郵便番号(ハイフンなし)" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><%= f.addess_firld :address, autocomplete: "住所" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone_number %><%= f.telephone_number_field :telephone_number, autocomplete: "電話番号(ハイフンなし)" %>
   </div>
 
   <div class="field">
