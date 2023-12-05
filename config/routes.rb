@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get 'about' => 'homes#about'
+    get 'customers/mypage' => 'customers#show'
   end
   scope module: :admin do
     get 'admin' => 'homes#top'
   end
-  resources :customer, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
