@@ -10,8 +10,10 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get 'about' => 'homes#about'
     get 'customers/mypage' => 'customers#show'
-    get 'customers/mypage/edit' => 'customers#edit'
-    patch 'customers/mypage' => 'customers#update'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information/update' => 'customers#update'
+    get 'customers/confirm' => 'customers#confirm'
+    patch 'customers/withdrawal' => 'customers#withdrawal'
   end
   scope module: :admin do
     get 'admin' => 'homes#top'
