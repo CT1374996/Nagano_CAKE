@@ -1,6 +1,6 @@
 <h3>マイページ</h3>
 <h4>登録情報</h4>
-<p><%= link_to "編集する", edit_customer_path(current_customer) %></p>
+<p><%= link_to "編集する", customers_information_edit_path %></p>
 
 <table>
   <tr>
@@ -28,3 +28,5 @@
     <td><%= @customer.email %></td>
   </tr>
 </table>
+
+<%= link_to "退会する", customers_confirm_path %>
