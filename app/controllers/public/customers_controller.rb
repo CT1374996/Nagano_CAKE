@@ -9,7 +9,8 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-    if @customer.update(current_customer)
+    @customer = current_customer
+    if @customer.update(customer_params)
       redirect_to customers_mypage_path(current_customer)
     else
       render :edit
@@ -21,8 +22,14 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdrawal
-    @customer.update(is_active = false)
+    @customer = current_customer
+    @customer.update(is_active: false)
     reset_session
-    redirect_to customers_withdrawal_path
+    redirect_to root_path
+  end
+
+  private
+  def customer_params
+    params.require(:customer).permit(:email, :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number)
   end
 end
