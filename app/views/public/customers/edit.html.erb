@@ -3,29 +3,29 @@
 <table>
   <tr>
     <td>氏名</td>
-    <td>姓<%= text_field :last_name, autocomplete: "(姓)" %></td>
-    <td>名<%= text_field :first_name, autocpmplete: "(名)" %></td>
+    <td>姓<%= text_field :last_name, autofocus: true %></td>
+    <td>名<%= text_field :first_name, autofocus: true %></td>
   </tr>
   <tr>
     <td>カナ</td>
-    <td>姓カナ<%= text_field :last_name_kana, autocomplete: "()" %></td>
-    <td>名カナ<%= text_field :first_name_kana, autcomplete: "()" %></td>
+    <td>姓カナ<%= text_field :last_name_kana, autofocus: true %></td>
+    <td>名カナ<%= text_field :first_name_kana, autcofocus: true %></td>
   </tr>
   <tr>
     <td>郵便番号</td>
-    <td><%= text_field :postal_code, autocomplete: "()" %></td>
+    <td><%= text_field :postal_code, autofocus: true %></td>
   </tr>
   <tr>
     <td>住所</td>
-    <td><%= text_field :address, autocomplete: "()" %></td>
+    <td><%= text_field :address, autofocus: true %></td>
   </tr>
   <tr>
     <td>電話番号</td>
-    <td><%= text_field :telephone_number, autocomplete: "()" %></td>
+    <td><%= text_field :telephone_number, autofocus: true %></td>
   </tr>
   <tr>
     <td>メールアドレス</td>
-    <td><%= text_field :email, autocomplete: "()" %></td>
+    <td><%= text_field :email, autofocus: true %></td>
   </tr>
 </table>
 <%= f.submit '編集する' %>
