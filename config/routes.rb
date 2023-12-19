@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   end
   scope module: :admin do
     get 'admin' => 'homes#top'
+    get 'admin/items/new' => 'admin#new'
+    post 'admin/items' => 'admin#create'
+    get 'admin/items' => 'admin#index'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
