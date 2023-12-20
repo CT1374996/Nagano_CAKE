@@ -15,11 +15,11 @@ Rails.application.routes.draw do
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/withdrawal' => 'customers#withdrawal'
   end
-  scope module: :admin do
+  scope 'admin' do
     get 'admin' => 'homes#top'
-    get 'admin/items/new' => 'admin#new'
-    post 'admin/items' => 'admin#create'
-    get 'admin/items' => 'admin#index'
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :order_details, only: [:show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
