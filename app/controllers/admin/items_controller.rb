@@ -1,7 +1,7 @@
 class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @items = Item.all(params[:page])
+    @items = Item.all
   end
 
   def new
@@ -11,7 +11,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to item_path(@item.id)
+      redirect_to admin_item_path(@item.id)
     else
       render :new
     end

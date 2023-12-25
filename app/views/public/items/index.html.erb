@@ -1,0 +1,8 @@
+<h3>商品一覧</h3>
+<%= @items.each do |item| %>
+<div>
+  <%= item.name %>
+  <%= item.price %>
+</div>
+<% end %>
+<%= paginate items %>

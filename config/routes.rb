@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
   end
-  scope 'admin' do
-    get 'admin' => 'homes#top'
+  namespace :admin do
+    root to: 'homes#top'
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :order_details, only: [:show]
