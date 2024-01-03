@@ -3,6 +3,7 @@
 <div>￥<%= @item.price %>(税込み)</div>
 
 <div>数量を選択して下さい。</div>
-<%= f.hidden_field "cart_item" => {"item_id", "amount"} %>
-<%= f.select :amount, *[1..10] %>
+<%= form_with model: @item, url: cart_items_path, method: :post do |f| %>
+<%= f.select :amount, *[1..10] %>個
 <%= f.submit 'カートに入れる' %>
+<% end %>
