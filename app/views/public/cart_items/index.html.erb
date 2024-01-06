@@ -9,9 +9,9 @@
   </tr>
   <% @cart_items.each do |cart_item| %>
   <tr>
-    <td><%= item.name %></td>
+    <td><%= cart_item.item.name %></td>
     <td><%= cart_item.item.with_tax_price %></td>
-    <td><%= f.select :amount, *[1..10] %><%= f.submit '変更' %></td>
+    <td><%= cart_item.select :amount, *[1..10] %></td>
     <td><%= cart_item.subtotal %></td>
   </tr>
   <tr>
