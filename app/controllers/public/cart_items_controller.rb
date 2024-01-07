@@ -2,6 +2,13 @@ class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
   def index
     @cart_items = CartItem.all
+    @total = 0
+  end
+
+  def edit
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.customer_id = current_customer.id
+    @customer = @cart_item.customer
   end
 
   def update
@@ -10,11 +17,13 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy
+    cart_item = CartItem.find(params[:id])
+    cart_item.destroy
+    redirect_to cart_items_path
   end
 
   def destroy_all
     current_customer.cart_items.destroy_all
-    reset_cart_item
     redirect_to cart_items_path
   end
 
