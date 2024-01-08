@@ -23,13 +23,15 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_item.customer_id = current_customer.id
-    if @cart_item.save
-      redirect_to cart_items_path(current_customer)
+    cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
+    if cart_item.nil?
+      @cart_item = CartItem.new(cart_item_params)
+      @cart_item.customer_id = current_customer.id
+      @cart_item.save
     else
-      render :show
+      cart_item.update(amount: cart_item.amount + params[:cart_item][:amount].to_i)
     end
+      redirect_to cart_items_path
   end
 
   private
