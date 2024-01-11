@@ -5,6 +5,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @order = current_customer
   end
 
   def complete
