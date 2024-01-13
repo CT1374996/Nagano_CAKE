@@ -37,6 +37,6 @@
 
 <div>支払い方法<%= @order.payment_method %></div>
 
-<div>お届け先〒<%= @customer.postal_code %><%= @customer.address %><br><%= @order.name %></div>
+<div>お届け先〒<%= @order.receiver_postal_code %><%= @order.receiver_address %><br><%= @order.receiver_name %></div>
 <%= f.submit '注文を確定する' %>
 <% end %>
