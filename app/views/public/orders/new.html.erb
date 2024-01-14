@@ -4,13 +4,12 @@
 <div><%= f.radio_button :payment_method, "credit_card" %>
 <%= f.label :payment_method_credit_card, "クレジットカード" %></div>
 
-<div><%= f.radio_button :payment_method, "transufer" %>
-<%= f.label :payment_method_trnsfer, "銀行振込" %></div>
-
+<div><%= f.radio_button :payment_method, "transfer" %>
+<%= f.label :payment_method_transfer, "銀行振込" %></div>
 
 <h4>お届け先</h4>
-<div>〒<%= @order.postal_code %><%= @order.address %><br>
-<%= @order.name %></div>
+<div>〒<%= @customer.postal_code %><%= @customer.address %><br>
+<%= @customer.last_name %><%= @customer.first_name %></div>
 
 <div><%= f.submit "確認画面へ進む" %></div>
 <% end %>

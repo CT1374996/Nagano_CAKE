@@ -1,14 +1,14 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
   def new
-    @order = Order.new
+   @order = Order.new
+   @customer = current_customer
   end
 
   def confirm
     @order = Order.new(order_params)
-    @order.receiver_postal_code = current_customer.postal_code
-    @order.receiver_address = current_customer.address
-    @order.receiver_name = current_customer.last_name + current_customer.first_name
+    binding.pry
+    @customer = current_customer
     @total = 0
     @order.shipping_fee = 800
   end
@@ -34,6 +34,6 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:receiver_postal_code, :receiver_address, :receiver_name, :payment_method, :monetary_amount)
+    params.require(:order).permit(:payment_method)
   end
 end
