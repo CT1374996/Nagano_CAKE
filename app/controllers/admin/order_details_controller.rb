@@ -1,9 +1,5 @@
 class Admin::OrderDetailsController < ApplicationController
   before_action :authenticate_admin!
-  def index
-    @order_details = OrderDetail.all
-  end
-
   def show
     @oder_details = OrderDetais.find(params[:id])
   end

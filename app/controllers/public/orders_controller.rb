@@ -7,10 +7,17 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    binding.pry
+    @order.receiver_name = current_customer.last_name + current_customer.first_name
+   @order.receiver_postal_code = current_customer.postal_code
+   @order.receiver_address = current_customer.address
     @customer = current_customer
+    @cart_items = current_customer.cart_items
     @total = 0
     @order.shipping_fee = 800
+    #@cart_item.each do |cart_item|
+      #cart_item.subtotal
+    #end
+    @order.monetary_amount = @total + @order.shipping_fee
   end
 
   def complete
@@ -22,6 +29,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
+    redirect_to orders_complete_path
   end
 
   def index
@@ -34,6 +42,6 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:payment_method)
+    params.require(:order).permit(:payment_method, :receiver_name, :receiver_postal_code, :receiver_address, :shipping_fee, :monetary_amount)
   end
 end
