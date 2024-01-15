@@ -1,7 +1,6 @@
 <h3>マイページ</h3>
 <h4>登録情報</h4>
 <p><%= link_to "編集する", customers_information_edit_path %></p>
-
 <table>
   <tr>
     <td>氏名</td>
@@ -28,5 +27,4 @@
     <td><%= @customer.email %></td>
   </tr>
 </table>
-
-<%= link_to "退会する", customers_confirm_path %>
+注文履歴<%= link_to "一覧を見る", orders_path %>

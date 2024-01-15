@@ -4,47 +4,41 @@
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
-    姓<%= f.text_field :last_name, autocomplete: "(姓)" %>
+    名前
+    姓<%= f.text_field :last_name, autocomplete: "(姓)" %>名<%= f.text_field :first_name, autocomplete: "(名)" %>
   </div>
 
   <div class="field">
-    名<%= f.text_field :first_name, autocomplete: "(名)" %>
+    フリガナ
+    姓カナ<%= f.text_field :last_name_kana, autocomplete: "(セイ)" %>名カナ<%= f.text_field :first_name_kana, autocomplete: "(メイ)" %>
   </div>
 
   <div class="field">
-    姓カナ<%= f.text_field :last_name_kana, autocomplete: "(セイ)" %>
+    メールアドレス<%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
   </div>
 
   <div class="field">
-    名カナ<%= f.text_field :first_name_kana, autocomplete: "(メイ)" %>
+    郵便番号(ハイフンなし)<%= f.text_field :postal_code, autocomplete: "郵便番号(ハイフンなし)" %>
   </div>
 
   <div class="field">
-    メールアドレス<br><%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
+    住所<%= f.text_field :address, autocomplete: "住所" %>
   </div>
 
   <div class="field">
-    郵便番号<br><%= f.text_field :postal_code, autocomplete: "郵便番号(ハイフンなし)" %>
-  </div>
-
-  <div class="field">
-    住所<br><%= f.text_field :address, autocomplete: "住所" %>
-  </div>
-
-  <div class="field">
-    電話番号<br><%= f.text_field :telephone_number, autocomplete: "電話番号(ハイフンなし)" %>
+    電話番号(ハイフンなし)<%= f.text_field :telephone_number, autocomplete: "電話番号(ハイフンなし)" %>
   </div>
 
   <div class="field">
     パスワード
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %>文字以上)</em>
-    <% end %><br />
+    <% end %>
     <%= f.password_field :password, autocomplete: "パスワード(6文字以上)" %>
   </div>
 
   <div class="field">
-    パスワード(確認用)<br />
+    パスワード(確認用)
     <%= f.password_field :password_confirmation, autocomplete: "パスワード(確認用)" %>
   </div>
 
@@ -52,5 +46,5 @@
     <%= f.submit "新規登録" %>
   </div>
 <% end %>
-
-<%= render "public/shared/links" %>
+<div>既に登録済みの方</div>
+<div>こちらから<%= render "public/shared/links" %>してください。</div>

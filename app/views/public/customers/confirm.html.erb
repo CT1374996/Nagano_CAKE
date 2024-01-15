@@ -1,6 +1,9 @@
-<h2>退会お手続き</h2>
+<h1>本当に退会しますか？</h1>
 
-<p>退会しますか？</p>
-<%= link_to "退会する", customers_withdrawal_path, method: :patch, data: { confirm: "後悔しませんね？" } %>
+<p>退会すると、会員登録情報や<br>
+これまでの購入履歴が閲覧できなくなります。<br>
+退会する場合は、「退会する」をクリックしてください。</p>
+
+<div><%= link_to "退会しない", customers_mypage_path %></div>
 <br>
-<%= link_to "退会しない", customers_mypage_path %>
+<div><%= link_to "退会する", customers_withdrawal_path, method: :patch, data: { confirm: "後悔しませんね？" } %></div>

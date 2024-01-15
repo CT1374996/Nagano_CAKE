@@ -4,6 +4,6 @@ class Admin::HomesController < ApplicationController
   end
 
   def index
-    @order_details = OrderDetail.all
+    @orders = Order.all
   end
 end
