@@ -4,15 +4,15 @@
 <table>
   <tr>
     <td>注文日</td>
-    <td></td>
+    <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
   </tr>
   <tr>
     <td>配送先</td>
-    <td></td>
+    <td>〒<%= @order.receiver_postal_code %><br><%= @order.receiver_address %><br><%= @order.receiver_name %></td>
   </tr>
   <tr>
     <td>支払方法</td>
-    <td></td>
+    <td><%= @order.payment_method %></td>
   </tr>
 </table>
 
@@ -24,11 +24,11 @@
   </tr>
   <tr>
     <td>送料</td>
-    <td></td>
+    <td><%= @order.shipping_fee %></td>
   </tr>
   <tr>
     <td>ご請求額</td>
-    <td></td>
+    <td><%= @order.monetary_amount %></td>
   </tr>
 </table>
 

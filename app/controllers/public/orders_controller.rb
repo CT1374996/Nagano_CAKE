@@ -3,21 +3,20 @@ class Public::OrdersController < ApplicationController
   def new
    @order = Order.new
    @customer = current_customer
+   @order.receiver_name = current_customer.last_name + current_customer.first_name
+   @order.receiver_postal_code = current_customer.postal_code
+   @order.receiver_address = current_customer.address
   end
 
   def confirm
     @order = Order.new(order_params)
-    @order.receiver_name = current_customer.last_name + current_customer.first_name
+   @order.receiver_name = current_customer.last_name + current_customer.first_name
    @order.receiver_postal_code = current_customer.postal_code
    @order.receiver_address = current_customer.address
     @customer = current_customer
     @cart_items = current_customer.cart_items
     @total = 0
     @order.shipping_fee = 800
-    #@cart_item.each do |cart_item|
-      #cart_item.subtotal
-    #end
-    @order.monetary_amount = @total + @order.shipping_fee
   end
 
   def complete

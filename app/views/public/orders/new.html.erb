@@ -8,8 +8,11 @@
 <%= f.label :payment_method_transfer, "銀行振込" %></div>
 
 <h4>お届け先</h4>
-<div>〒<%= @customer.postal_code %><%= @customer.address %><br>
-<%= @customer.last_name %><%= @customer.first_name %></div>
+<%= f.hidden_field :receiver_name, :value => @order.receiver_name %>
+<%= f.hidden_field :receiver_postal_code, :value => @order.receiver_postal_code %>
+<%= f.hidden_field :receiver_address, :value => @order.receiver_address %>
+<div>〒<%= @order.receiver_postal_code %><%= @order.receiver_address %><br>
+<%= @order.receiver_name %></div>
 
 <div><%= f.submit "確認画面へ進む" %></div>
 <% end %>
