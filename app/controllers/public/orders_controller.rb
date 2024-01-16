@@ -17,6 +17,7 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @total = 0
     @order.shipping_fee = 800
+
   end
 
   def complete
@@ -28,6 +29,16 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
+    @cart_items = current_customer.cart_items
+    @cart_items.each do |cart_item|
+      order_detail = OrderDetail.new
+      order_detail.order_id = @order.id
+      order_detail.item_id = cart_item.item.id
+      order_detail.tax_included_price = cart_item.item.with_tax_price
+      order_detail.amount = cart_item.amount
+
+      order_detail.save
+    end
     redirect_to orders_complete_path
   end
 

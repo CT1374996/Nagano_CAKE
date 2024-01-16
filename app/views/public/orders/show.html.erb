@@ -20,7 +20,7 @@
 <table>
   <tr>
     <td>商品合計</td>
-    <td></td>
+    <td><%= @order.monetary_amount - @order.shipping_fee %></td>
   </tr>
   <tr>
     <td>送料</td>
@@ -40,10 +40,12 @@
     <th>個数</th>
     <th>小計</th>
   </tr>
+  <% @order.order_details.each do |order_detail| %>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><%= order_detail.item.name %></td>
+    <td><%= order_detail.tax_included_price %></td>
+    <td><%= order_detail.amount %></td>
+    <td><%= order_detail.tax_included_price.to_i * order_detail.amount.to_i %></td>
   </tr>
+  <% end %>
 </table>

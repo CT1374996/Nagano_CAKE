@@ -11,7 +11,7 @@
   <tr>
     <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
     <td>〒<%= order.receiver_postal_code %><br><%= order.receiver_address %><br><%= order.receiver_name %></td>
-    <td></td>
+    <td><% order.order_details.each do |order_detail| %><%= order_detail.item.name %><% end %></td>
     <td><%= order.monetary_amount %></td>
     <td><%= link_to "表示する", order_path(order.id) %></td>
   </tr>
