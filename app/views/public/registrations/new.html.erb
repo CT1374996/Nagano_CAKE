@@ -2,46 +2,42 @@
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    名前
-    姓<%= f.text_field :last_name, autocomplete: "(姓)" %>名<%= f.text_field :first_name, autocomplete: "(名)" %>
-  </div>
-
-  <div class="field">
-    フリガナ
-    姓カナ<%= f.text_field :last_name_kana, autocomplete: "(セイ)" %>名カナ<%= f.text_field :first_name_kana, autocomplete: "(メイ)" %>
-  </div>
-
-  <div class="field">
-    メールアドレス<%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
-  </div>
-
-  <div class="field">
-    郵便番号(ハイフンなし)<%= f.text_field :postal_code, autocomplete: "郵便番号(ハイフンなし)" %>
-  </div>
-
-  <div class="field">
-    住所<%= f.text_field :address, autocomplete: "住所" %>
-  </div>
-
-  <div class="field">
-    電話番号(ハイフンなし)<%= f.text_field :telephone_number, autocomplete: "電話番号(ハイフンなし)" %>
-  </div>
-
-  <div class="field">
-    パスワード
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %>文字以上)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "パスワード(6文字以上)" %>
-  </div>
-
-  <div class="field">
-    パスワード(確認用)
-    <%= f.password_field :password_confirmation, autocomplete: "パスワード(確認用)" %>
-  </div>
-
+<table>
+  <tr>
+    <td>名前</td>
+    <td>姓<%= f.text_field :last_name, autocomplete: "(姓)" %></td>
+    <td>名<%= f.text_field :first_name, autocomplete: "(名)" %></td>
+  </tr>
+  <tr>
+    <td>フリガナ</td>
+    <td>姓カナ<%= f.text_field :last_name_kana, autocomplete: "(セイ)" %></td>
+    <td>名カナ<%= f.text_field :first_name_kana, autocomplete: "(メイ)" %></td>
+  </tr>
+  <tr>
+    <td>メールアドレス</td>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %></td>
+  </tr>
+  <tr>
+    <td>郵便番号(ハイフンなし)</td>
+    <td><%= f.text_field :postal_code, autocomplete: "郵便番号(ハイフンなし)" %></td>
+  </tr>
+  <tr>
+    <td>住所</td>
+    <td><%= f.text_field :address, autocomplete: "住所" %></td>
+  </tr>
+  <tr>
+    <td>電話番号(ハイフンなし)</td>
+    <td><%= f.text_field :telephone_number, autocomplete: "電話番号(ハイフンなし)" %></td>
+  </tr>
+  <tr>
+    <td>パスワード<% if @minimum_password_length %><em>(<%= @minimum_password_length %>文字以上)</em><% end %></td>
+    <td><%= f.password_field :password, autocomplete: "パスワード(6文字以上)" %></td>
+  </tr>
+  <tr>
+    <td>パスワード(確認用)</td>
+    <td><%= f.password_field :password_confirmation, autocomplete: "パスワード(確認用)" %></td>
+  </tr>
+</table>
   <div class="actions">
     <%= f.submit "新規登録" %>
   </div>
