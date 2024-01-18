@@ -1,7 +1,7 @@
 class Admin::OrderDetailsController < ApplicationController
   before_action :authenticate_admin!
   def show
-    @order_detail = OrderDetail.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   private
