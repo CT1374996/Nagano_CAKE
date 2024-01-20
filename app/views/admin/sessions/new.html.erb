@@ -2,16 +2,16 @@
 <h2>管理者ログイン</h2>
 
 <%= form_with model: @admin, url: admin_session_path do |f| %>
-  <div class="field">
-    メールアドレス<br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
-  </div>
-
-  <div class="field">
-    パスワード<br />
-    <%= f.password_field :password, autocomplete: "パスワード" %>
-  </div>
-
+<table class="table">
+  <tr>
+    <td>メールアドレス</td>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %></td>
+  </tr>
+  <tr>
+    <td>パスワード</td>
+    <td><%= f.password_field :password, autocomplete: "パスワード" %></td>
+  </tr>
+</table>
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>

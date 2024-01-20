@@ -1,6 +1,7 @@
+<div class="container">
 <h3>商品編集</h3>
 <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
-<table>
+<table class="table">
 <tr>
     <td>商品名</td>
     <td><%= f.text_field :name %></td>
@@ -14,5 +15,6 @@
     <td><%= f.text_field :price %></td>
   </tr>
 </table>
-<%= f.submit '編集完了' %>
+<%= f.submit '編集完了', class:"btn btn-secondary" %>
 <% end %>
+</div>
