@@ -1,6 +1,7 @@
+<div class="container">
 <h3>マイページ編集</h3>
 <%= form_with model: @customer, url: customers_information_update_path, method: :patch do |f| %>
-<table>
+<table class="table">
   <tr>
     <td>氏名</td>
     <td>姓<%= f.text_field :last_name, autofocus: true %></td>
@@ -28,7 +29,8 @@
     <td><%= f.text_field :email, autofocus: true %></td>
   </tr>
 </table>
-<%= f.submit '編集内容を保存' %>
+<%= f.submit '編集内容を保存', class:"btn btn-secondary" %>
   <% end %>
 
-<div><%= link_to "退会する", customers_confirm_path %></div>
+<div><%= link_to "退会する", customers_confirm_path, class:"btn btn-outline-secondary" %></div>
+</div>

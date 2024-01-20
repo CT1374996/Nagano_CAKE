@@ -1,3 +1,4 @@
+<div class="container">
 <h2>管理者ログイン</h2>
 
 <%= form_with model: @admin, url: admin_session_path do |f| %>
@@ -19,8 +20,9 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
+    <%= f.submit "ログイン", class:"btn btn-secondary" %>
   </div>
 <% end %>
 
 <%= render "admin/shared/links" %>
+</div>

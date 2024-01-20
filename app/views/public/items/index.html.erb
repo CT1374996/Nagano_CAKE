@@ -1,7 +1,7 @@
+<div class="container">
 <h3>商品一覧(全<%= @items.count %>件)</h3>
 <% @items.each do |item| %>
-<div>
-  <%= link_to item_path(item.id) do %><%= item.name %><% end %>
-  <%= item.price %>
-</div>
+<div><%= link_to item_path(item.id) do %><%= item.name %><% end %></div>
+<div>￥<%= item.price %></div>
 <% end %>
+</div>

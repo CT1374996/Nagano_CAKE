@@ -1,3 +1,4 @@
+<div class="container">
 <h1>本当に退会しますか？</h1>
 
 <p>退会すると、会員登録情報や<br>
@@ -6,4 +7,5 @@
 
 <div><%= link_to "退会しない", customers_mypage_path %></div>
 <br>
-<div><%= link_to "退会する", customers_withdrawal_path, method: :patch, data: { confirm: "後悔しませんね？" } %></div>
+<div><%= link_to "退会する", customers_withdrawal_path, method: :patch, data: { confirm: "後悔しませんね？" }, class:"btn btn-secondary" %></div>
+</div>

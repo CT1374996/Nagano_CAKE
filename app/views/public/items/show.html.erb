@@ -1,3 +1,4 @@
+<div class="container">
 <h3><%= @item.name %></h3>
 <div><%= @item.introduction %></div>
 <div>￥<%= @item.price %>(税込み)</div>
@@ -6,5 +7,6 @@
 <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
 <%= f.select :amount, *[1..10] %>個
 <%= f.hidden_field :item_id, :value => @item.id %>
-<%= f.submit 'カートに入れる' %>
+<%= f.submit 'カートに入れる', class:"btn btn-secondary" %>
 <% end %>
+</div>

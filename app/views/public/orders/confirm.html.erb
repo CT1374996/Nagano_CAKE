@@ -1,5 +1,6 @@
+<div class="container">
 <h3>注文情報確認</h3>
-<table>
+<table class="table">
     <tr>
         <th>商品名</th>
         <th>単価(税込)</th>
@@ -43,5 +44,6 @@
 <%= f.hidden_field :shipping_fee, :value => @order.shipping_fee %>
 <%= f.hidden_field :payment_method, :value => @order.payment_method %>
 <%= f.hidden_field :monetary_amount, :value => @total + @order.shipping_fee %>
-<%= f.submit '注文を確定する' %>
+<%= f.submit '注文を確定する', class:"btn btn-secondary" %>
 <% end %>
+</div>
