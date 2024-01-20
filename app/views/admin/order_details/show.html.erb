@@ -1,10 +1,10 @@
 <div class="container">
 <h3>注文履歴詳細</h3>
-
+<div class="row">
 <table class="table">
   <tr>
     <td>購入者</td>
-    <td></td>
+    <td><%= @order.receiver_name %></td>
   </tr>
   <tr>
     <td>注文日</td>
@@ -19,7 +19,10 @@
     <td><%= @order.payment_method %></td>
   </tr>
 </table>
+</div>
 
+<div class="row">
+<div class="col">
 <table class="table">
   <tr>
     <th>商品名</th>
@@ -36,7 +39,8 @@
   </tr>
   <% end %>
 </table>
-<div class="row">
+</div>
+<div class="col">
 <table class="table">
   <tr>
     <td>商品合計</td>
@@ -51,5 +55,6 @@
     <td><%= @order.monetary_amount %></td>
   </tr>
 </table>
+</div>
 </div>
 </div>
