@@ -32,7 +32,7 @@
   </tr>
   <tr>
     <td>会員ステータス</td>
-    <td><%= @customer.is_active %></td>
+    <td><% if @customer.is_active == true %>有効<% else %>退会<% end %></td>
   </tr>
 </table>
 <div><%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-secondary" %></div>
