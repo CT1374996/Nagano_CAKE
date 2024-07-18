@@ -3,11 +3,11 @@
 class Public::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
   before_action :customer_state, only: [:create]
-  def after_sign_in_path_for(resoureces)
+  def after_sign_in_path_for(resource)
     customers_mypage_path
   end
 
-  def after_sign_out_path_for(resoureces)
+  def after_sign_out_path_for(resource)
     root_path
   end
   # before_action :configure_sign_in_params, only: [:create]

@@ -4,4 +4,5 @@
 <div><%= link_to item_path(item.id) do %><%= item.name %><% end %></div>
 <div>￥<%= item.price %></div>
 <% end %>
+<%= paginate @items %>
 </div>
