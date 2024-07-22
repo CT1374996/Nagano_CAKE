@@ -35,3 +35,12 @@ Item.find_or_create_by!(name: "バスクチーズケーキ") do |item|
   item.introduction = "美味しくないわけないだろ！チーズケーキなんだから！"
   item.price = "597"
 end
+
+Genre.find_or_create_by!(genre_name: "ケーキ") do |genre|
+end
+
+Genre.find_or_create_by!(genre_name: "プリン") do |genre|
+end
+
+Genre.find_or_create_by!(genre_name: "ドーナツ") do |genre|
+end
